@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Environment files
+.env
+.env.*.local
+*.env
+
+# Logs
+logs/
+*.log
+
+# OS and IDE files
+.DS_Store
+.vscode/
+*.swp
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
