@@ -30,7 +30,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       process.env.FRONTEND_URL,
-      "https://aarambhdecor.vercel.app" // Replace with your actual Vercel URL
+      "https://aarambhdecor.vercel.app/" // Replace with your actual Vercel URL
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
