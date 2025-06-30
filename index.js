@@ -18,11 +18,29 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://www.instagram.com"],
+        styleSrc: [
+          "'self'",
+          "https://fonts.googleapis.com",
+          "'unsafe-inline'" // only if you use inline styles
+        ],
+        fontSrc: ["https://fonts.gstatic.com"],
+        imgSrc: ["'self'", "data:"],
+        connectSrc: [
+          "'self'",
+          "https://aarambhdecorbackend.onrender.com"
+        ],
+        frameSrc: ["https://www.instagram.com"],
+        baseUri: ["'self'"],
+        formAction: ["'self'"],
+        objectSrc: ["'none'"],
         upgradeInsecureRequests: [],
       },
     },
   })
 );
+
 
 // CORS Configuration
 app.use(
@@ -30,7 +48,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       process.env.FRONTEND_URL,
-      "https://aarambhdecor.vercel.app/" // Replace with your actual Vercel URL
+      "https://aarambhdecor.vercel.app" // Replace with your actual Vercel URL
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
