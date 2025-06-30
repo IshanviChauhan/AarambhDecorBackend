@@ -23,7 +23,7 @@ app.use(
         styleSrc: [
           "'self'",
           "https://fonts.googleapis.com",
-          "'unsafe-inline'" // if using inline styles
+          "'unsafe-inline'" // required if you use inline styles
         ],
         fontSrc: [
           "'self'",
@@ -47,8 +47,6 @@ app.use(
     },
   })
 );
-
-
 
 // CORS Configuration
 app.use(
