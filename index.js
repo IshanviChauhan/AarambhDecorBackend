@@ -23,10 +23,17 @@ app.use(
         styleSrc: [
           "'self'",
           "https://fonts.googleapis.com",
-          "'unsafe-inline'" // only if you use inline styles
+          "'unsafe-inline'" // if using inline styles
         ],
-        fontSrc: ["https://fonts.gstatic.com"],
-        imgSrc: ["'self'", "data:"],
+        fontSrc: [
+          "'self'",
+          "https://fonts.gstatic.com"
+        ],
+        imgSrc: [
+          "'self'",
+          "data:",
+          "https://res.cloudinary.com"
+        ],
         connectSrc: [
           "'self'",
           "https://aarambhdecorbackend.onrender.com"
@@ -40,6 +47,7 @@ app.use(
     },
   })
 );
+
 
 
 // CORS Configuration
