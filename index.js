@@ -13,7 +13,16 @@ const uploadImage = require("./utils/uploadimage");
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.use(helmet());
+// app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        upgradeInsecureRequests: [],
+      },
+    },
+  })
+);
 
 // CORS Configuration
 app.use(
