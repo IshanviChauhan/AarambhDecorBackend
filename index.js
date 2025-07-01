@@ -19,18 +19,19 @@ app.use(
 );
 
 // CORS Configuration
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      process.env.FRONTEND_URL,
-      "https://aarambhdecor.vercel.app",
-      "https://aarambh-decor.netlify.app"
-    ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true,
-  })
-);
+const allowedOrigins = process.env.FRONTEND_URL.split(',');
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
 
 // JSON and URL-encoded parsing
 app.use(express.json({ limit: "25mb" }));
