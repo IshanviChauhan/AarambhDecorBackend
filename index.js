@@ -24,7 +24,8 @@ app.use(
     origin: [
       "http://localhost:5173",
       process.env.FRONTEND_URL,
-      "https://aarambhdecor.vercel.app" // Replace with your actual Vercel URL
+      "https://aarambhdecor.vercel.app",
+      "https://aarambh-decor.netlify.app"
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
