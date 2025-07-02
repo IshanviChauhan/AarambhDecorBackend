@@ -6,11 +6,6 @@ const instagramReelSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  caption: {
-    type: String,
-    required: true,
-    trim: true
-  },
   embedId: {
     type: String,
     required: true,

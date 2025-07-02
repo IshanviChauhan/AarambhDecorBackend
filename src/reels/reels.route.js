@@ -47,12 +47,12 @@ router.get('/admin', verifyToken, verifyAdmin, async (req, res) => {
 // Create new reel (admin only)
 router.post('/', verifyToken, verifyAdmin, async (req, res) => {
   try {
-    const { instagramUrl, caption } = req.body;
+    const { instagramUrl } = req.body;
 
-    if (!instagramUrl || !caption) {
+    if (!instagramUrl) {
       return res.status(400).json({
         success: false,
-        message: 'Instagram URL and caption are required'
+        message: 'Instagram URL is required'
       });
     }
 
@@ -71,7 +71,6 @@ router.post('/', verifyToken, verifyAdmin, async (req, res) => {
 
     const newReel = new InstagramReel({
       instagramUrl,
-      caption,
       embedId
     });
 
@@ -95,12 +94,12 @@ router.post('/', verifyToken, verifyAdmin, async (req, res) => {
 router.put('/:id', verifyToken, verifyAdmin, async (req, res) => {
   try {
     const { id } = req.params;
-    const { instagramUrl, caption } = req.body;
+    const { instagramUrl } = req.body;
 
-    if (!instagramUrl || !caption) {
+    if (!instagramUrl) {
       return res.status(400).json({
         success: false,
-        message: 'Instagram URL and caption are required'
+        message: 'Instagram URL is required'
       });
     }
 
@@ -119,7 +118,6 @@ router.put('/:id', verifyToken, verifyAdmin, async (req, res) => {
 
     const updateData = {
       instagramUrl,
-      caption,
       embedId
     };
 
